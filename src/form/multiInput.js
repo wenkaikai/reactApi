@@ -15,7 +15,6 @@ class Reservation extends React.Component {
       const target = event.target;
       const value = target.type === 'checkbox' ? target.checked : target.value;
       const name = target.name;
-  
       //这里使用了 ES6 计算属性名称的语法更新给定输入名称对应的 state 值
       this.setState({
         [name]: value

@@ -73,7 +73,7 @@ module.exports = {
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   // appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appIndexJs: resolveModule(resolveApp, 'src/form/multiInput'),
+  appIndexJs: resolveModule(resolveApp, 'src/contain/classDefine'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appTsConfig: resolveApp('tsconfig.json'),

@@ -43,38 +43,42 @@
 
 // 绑定函数的列子二
 
-// class Toggle extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {isToggleOn: true};
+class Toggle extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {isToggleOn: true};
+      console.log(this)
   
-//       // 为了在回调中使用 `this`，这个绑定是必不可少的
-//     //   this.handleClick = this.handleClick.bind(this);
+      // 为了在回调中使用 `this`，这个绑定是必不可少的
+      this.handleClick = this.handleClick.bind(this);
     
-//     }
+    }
   
-//     handleClick() {
-//         // console.log(this)
+    handleClick() {
+      /**如果在contructor中没有代码this.handleClick = this.handleClick.bind(this);
+       * 这里的thist 就是undefined
+       */
+        console.log(this)
 
-//         //  这个时候用箭头函数就有this 这种方式和箭头函数不是一样的吗
-//       this.setState(state => ({
-//         isToggleOn: !state.isToggleOn
-//       }));
-//     }
+        //  这个时候用箭头函数就有this 这种方式和箭头函数不是一样的吗
+      this.setState(state => ({
+        isToggleOn: !state.isToggleOn
+      }));
+    }
   
-//     render() {
-//       return (
-//         <button onClick={this.handleClick}>
-//           {this.state.isToggleOn ? 'ON' : 'OFF'}
-//         </button>
-//       );
-//     }
-//   }
+    render() {
+      return (
+        <button onClick={this.handleClick}>
+          {this.state.isToggleOn ? 'ON' : 'OFF'}
+        </button>
+      );
+    }
+  }
   
-//   ReactDOM.render(
-//     <Toggle />,
-//     document.getElementById('root')
-//   );
+  ReactDOM.render(
+    <Toggle />,
+    document.getElementById('root')
+  );
 
 
 
@@ -90,22 +94,22 @@
 
 
 
-class LoggingButton extends React.Component {
-    handleClick = (num) => {
-      console.log(num);
-    }
-    render() {
-      return (
-        //   这里为什么要用bind 呢 ， 因为bind 不会执行函数，而 call 会执行函数（这样的话就直接执行了handleClick 方法了）
-        <button onClick={this.handleClick.bind(this,123444)}>
-          Click me
-        </button>
-      );
-    }
-  }
+// class LoggingButton extends React.Component {
+//     handleClick = (num) => {
+//       console.log(num);
+//     }
+//     render() {
+//       return (
+//         //   这里为什么要用bind 呢 ， 因为bind 不会执行函数，而 call 会执行函数（这样的话就直接执行了handleClick 方法了）
+//         <button onClick={this.handleClick.bind(this,123444)}>
+//           Click me
+//         </button>
+//       );
+//     }
+//   }
 
-  ReactDOM.render(
-      <LoggingButton/>,
-      document.getElementById("root")
-  )
+//   ReactDOM.render(
+//       <LoggingButton/>,
+//       document.getElementById("root")
+//   )
 
