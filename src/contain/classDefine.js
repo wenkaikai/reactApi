@@ -28,6 +28,7 @@ function Dialog(props) {
 class SignUpDialog extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this)
         this.handleChange = this.handleChange.bind(this);
         this.handleSignUp = this.handleSignUp.bind(this);
         this.state = { login: '' };
